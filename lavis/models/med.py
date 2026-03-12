@@ -44,8 +44,9 @@ from transformers.modeling_utils import (
     # prune_linear_layer,
 )
 # from transformers.pytorch_utils import (
-    # PreTrainedModel,
-    
+#     apply_chunking_to_forward,
+# )
+
 from transformers.pytorch_utils import apply_chunking_to_forward, prune_linear_layer
 
 try:
