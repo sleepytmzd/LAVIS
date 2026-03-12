@@ -37,14 +37,14 @@ from transformers.modeling_outputs import (
     SequenceClassifierOutput,
     TokenClassifierOutput,
 )
-# from transformers.modeling_utils import (
-#     PreTrainedModel,
-#     apply_chunking_to_forward,
-#     find_pruneable_heads_and_indices,
-#     prune_linear_layer,
-# )
-from transformers.utils import (
+from transformers.modeling_utils import (
     PreTrainedModel,
+    # apply_chunking_to_forward,
+    # find_pruneable_heads_and_indices,
+    # prune_linear_layer,
+)
+from transformers.utils import (
+    # PreTrainedModel,
     apply_chunking_to_forward,
     find_pruneable_heads_and_indices,
     prune_linear_layer,
