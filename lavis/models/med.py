@@ -46,7 +46,22 @@ from transformers.modeling_utils import (
 # from transformers.pytorch_utils import (
     # PreTrainedModel,
     
-from transformers.pytorch_utils import apply_chunking_to_forward, find_pruneable_heads_and_indices, prune_linear_layer
+from transformers.pytorch_utils import apply_chunking_to_forward, prune_linear_layer
+
+try:
+    from transformers.pytorch_utils import find_pruneable_heads_and_indices
+except ImportError:
+    # Fallback for transformers >= 4.40.0 where this function was removed
+    from typing import List, Set
+    def find_pruneable_heads_and_indices(
+        heads: List[int], n_heads: int, head_dim: int, already_pruned_heads: Set[int]
+    ):
+        mask = torch.ones(n_heads, head_dim)
+        for head in set(heads) - already_pruned_heads:
+            mask[head] = 0
+        mask = mask.view(-1).contiguous().eq(1)
+        return set(heads) - already_pruned_heads, torch.arange(len(mask))[mask].long()
+    
 from transformers.utils import logging
 from transformers.models.bert.configuration_bert import BertConfig
 from lavis.common.utils import get_abs_path
