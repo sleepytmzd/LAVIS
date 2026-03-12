@@ -1,0 +1,26 @@
+ # Copyright (c) 2022, salesforce.com, inc.
+ # All rights reserved.
+ # SPDX-License-Identifier: BSD-3-Clause
+ # For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
+
+ datasets:
+   gameqa:
+     # data_dir: ${env.data_dir}/datasets
+     data_type: images # [images|videos|features]
+
+     build_info:
+       # Provide local paths or URLs for annotations. Use absolute paths on Kaggle.
+       annotations:
+         train:
+          #  url:
+          #    - /path/to/gameqa_train.json
+           storage:
+             - /kaggle/input/notebooks/hehelol55/fork-of-qwen-bulk-gameqa-state-description/games_data_train_0_40000_with_state_descriptions.json
+        #  test:
+        #    url:
+        #      - /path/to/gameqa_test.json
+        #    storage:
+        #      - gameqa/annotations/gameqa_test.json
+       images:
+         # Root that contains the image files referenced by the "image" field.
+         storage: /kaggle/input/datasets/sleepytmzd/gameqa-train

@@ -46,6 +46,7 @@ from lavis.datasets.builders.image_text_pair_builder import (
     Laion400MBuilder,
     Laion400MInstructBuilder
 )
+from lavis.datasets.builders.gameqa_builder import GameQAPretrainBuilder
 from lavis.datasets.builders.classification_builder import (
     NLVRBuilder,
     SNLIVisualEntailmentBuilder,
@@ -150,6 +151,7 @@ __all__ = [
     "VGVQABuilder",
     "AVSDDialBuilder",
     "Laion400MBuilder",
+    "GameQAPretrainBuilder",
 
     "ViolinCapBuilder",
     "ViolinEntailmentBuilder",
