@@ -51,4 +51,5 @@ timm==0.4.12
 webdataset
 easydict==1.9
 pyyaml_env_tag==0.1
+pycocoevalcap
 h5py
