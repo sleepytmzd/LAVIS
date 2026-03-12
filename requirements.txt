@@ -47,6 +47,7 @@ fairscale==0.4.4
 ftfy
 iopath
 omegaconf
+open3d>=0.18
 pycocotools
 timm==0.4.12
 webdataset
