@@ -54,7 +54,7 @@ class Blip2Base(BaseModel):
         encoder_config.cross_attention_freq = cross_attention_freq
         encoder_config.query_length = num_query_token
         Qformer = BertLMHeadModel.from_pretrained(
-            "bert-base-uncased", config=encoder_config
+            "bert-base-uncased", config=encoder_config, ignore_mismatched_sizes=True
         )
         query_tokens = nn.Parameter(
             torch.zeros(1, num_query_token, encoder_config.hidden_size)
