@@ -1150,15 +1150,13 @@ class BertForMaskedLM(BertPreTrainedModel):
 
 class BertLMHeadModel(BertPreTrainedModel):
 
-    @property
-    def all_tied_weights_keys(self):
-        return getattr(self, "_tied_weights_keys", {})
-
     _keys_to_ignore_on_load_unexpected = [r"pooler"]
     _keys_to_ignore_on_load_missing = [r"position_ids", r"predictions.decoder.bias"]
 
     def __init__(self, config):
         super().__init__(config)
+
+        self.all_tied_weights_keys = {}
 
         self.bert = BertModel(config, add_pooling_layer=False)
         self.cls = BertOnlyMLMHead(config)
