@@ -150,7 +150,13 @@ class Blip2Qformer(Blip2Base):
         sim_t2i, _ = sim_t2q.max(-1)
         sim_t2i = sim_t2i / self.temp  # [batch_size, batch_size*num_gpu]
 
-        rank = dist.get_rank()
+        # rank = dist.get_rank()
+        # Distributed training error fix for single GPU case, where rank is always 0 but batch size is not multiplied by num_gpu
+        if dist.is_available() and dist.is_initialized():
+            rank = dist.get_rank()
+        else:
+            rank = 0
+
         bs = image.size(0)
         targets = torch.linspace(rank * bs, rank * bs + bs - 1, bs, dtype=int).to(
             image.device
