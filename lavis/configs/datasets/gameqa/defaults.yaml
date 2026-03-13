@@ -12,8 +12,8 @@
        # Provide local paths or URLs for annotations. Use absolute paths on Kaggle.
        annotations:
          train:
-          #  url:
-          #    - /path/to/gameqa_train.json
+           url:
+             - /kaggle/input/notebooks/hehelol55/fork-of-qwen-bulk-gameqa-state-description/games_data_train_0_40000_with_state_descriptions.json
            storage:
              - /kaggle/input/notebooks/hehelol55/fork-of-qwen-bulk-gameqa-state-description/games_data_train_0_40000_with_state_descriptions.json
         #  test:
