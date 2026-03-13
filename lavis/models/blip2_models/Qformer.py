@@ -990,6 +990,8 @@ class BertLMHeadModel(BertPreTrainedModel):
     def __init__(self, config):
         super().__init__(config)
 
+        self.all_tied_weights_keys = {}
+
         self.bert = BertModel(config, add_pooling_layer=False)
         self.cls = BertOnlyMLMHead(config)
 
