@@ -14,10 +14,11 @@
      vis_processor:
        train:
          name: "blip2_image_train"
-         image_size: 224
+         image_size: 364
      text_processor:
        train:
          name: "blip_caption"
+         max_txt_len: 512
 
  run:
    task: image_text_pretrain
