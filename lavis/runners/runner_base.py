@@ -419,7 +419,10 @@ class RunnerBase:
             if self.save_freq>0 and cur_epoch%self.save_freq == 0:
                 self._save_checkpoint(cur_epoch, is_best=False)
 
-            dist.barrier()
+            # dist.barrier()
+            # distributed training error fix for single GPU case, where dist.barrier() will cause hanging
+            if dist.is_available() and dist.is_initialized():
+                dist.barrier()
 
         # save last checkpoint
         if self.save_last and not self.evaluate_only:
