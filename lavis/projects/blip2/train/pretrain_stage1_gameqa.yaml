@@ -8,6 +8,7 @@
    model_type: pretrain
    load_pretrained: True 
    freeze_vit: True
+   image_size: 364
 
  datasets:
    gameqa:
