@@ -46,6 +46,8 @@ class Blip2Base(BaseModel):
     @classmethod
     def init_Qformer(cls, num_query_token, vision_width, cross_attention_freq=2):
         encoder_config = BertConfig.from_pretrained("bert-base-uncased")
+        # compatibility fix for old pretrained Q-former weights, which have vocab size of 30522 due to not adding special tokens
+        encoder_config.vocab_size = 30523
         encoder_config.encoder_width = vision_width
         # insert cross-attention layer every other block
         encoder_config.add_cross_attention = True
