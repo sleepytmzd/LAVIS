@@ -37,7 +37,7 @@
    warmup_steps: 5000
 
    seed: 42
-   output_dir: "output/BLIP2/Pretrain_stage1_gameqa"
+   output_dir: "/kaggle/working/output/BLIP2/Pretrain_stage1_gameqa"
 
    amp: True
    resume_ckpt_path: null
