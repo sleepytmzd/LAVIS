@@ -41,6 +41,8 @@
 
    amp: True
    resume_ckpt_path: null
+   save_freq: 5
+   save_last: True
 
    evaluate: False
    train_splits: ["train"]
